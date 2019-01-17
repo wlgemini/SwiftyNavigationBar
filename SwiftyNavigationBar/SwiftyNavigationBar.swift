@@ -261,6 +261,24 @@ fileprivate class _NavigationBar: UINavigationBar {
         set { super.alpha = self._alpha }
     }
     
+    /// layoutSubviews
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let w = self.frame.width
+        let h = self.frame.height
+        let x = self.frame.origin.x
+        let y = self.frame.origin.y
+        
+        // backgroundFakeBar
+        self.backgroundFakeBar.frame = CGRect(x: 0, y: -y, width: w, height: h + y)
+        self.insertSubview(self.backgroundFakeBar, at: 0)
+        
+        // shadowImageView
+        self.shadowImageView.frame = CGRect(x: x, y: h, width: w, height: 0.25)
+        self.insertSubview(self.shadowImageView, at: 1)
+    }
+    
     // MARK: - fileprivate
     /// backgroundFakeBar
     let backgroundFakeBar = _FakeBar()
@@ -283,7 +301,6 @@ fileprivate class _NavigationBar: UINavigationBar {
         
         // tintColor
         self._tintColor = style.tintColor ?? self.preferenceStyle.tintColor ?? Style.tintColor
-        self.tintColor = self._tintColor
         
         // isWhiteBarStyle
         let isWhiteBarStyle = style.isWhiteBarStyle ?? self.preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
@@ -292,7 +309,6 @@ fileprivate class _NavigationBar: UINavigationBar {
         } else {
             self._barStyle = .default
         }
-        self.barStyle = self._barStyle
         
         // shadowImageAlpha
         self.shadowImageView.alpha = style.shadowImageAlpha ?? self.preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
@@ -304,7 +320,6 @@ fileprivate class _NavigationBar: UINavigationBar {
         } else {
             self._alpha = 1
         }
-        self.alpha = self._alpha
     }
     
     /// update to style
@@ -317,7 +332,6 @@ fileprivate class _NavigationBar: UINavigationBar {
             if tintColor != toTintColor {
                 style.tintColor = toTintColor
                 self._tintColor = toTintColor
-                self.tintColor = self._tintColor
             }
         }
         
@@ -331,7 +345,6 @@ fileprivate class _NavigationBar: UINavigationBar {
                 } else {
                     self._barStyle = .default
                 }
-                self.barStyle = self._barStyle
             }
         }
         
@@ -354,7 +367,6 @@ fileprivate class _NavigationBar: UINavigationBar {
                 } else {
                     self._alpha = 1
                 }
-                self.alpha = self._alpha
             }
         }
     }
@@ -399,34 +411,21 @@ fileprivate class _NavigationBar: UINavigationBar {
         }
     }
     
-    /// layoutSubviews
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let w = self.frame.width
-        let h = self.frame.height
-        let x = self.frame.origin.x
-        let y = self.frame.origin.y
-        
-        // backgroundFakeBar
-        self.backgroundFakeBar.frame = CGRect(x: 0, y: -y, width: w, height: h + y)
-        self.insertSubview(self.backgroundFakeBar, at: 0)
-        
-        // shadowImageView
-        self.shadowImageView.frame = CGRect(x: x, y: h, width: w, height: 0.5)
-        self.insertSubview(self.shadowImageView, at: 1)
+    // MARK: - private
+    /// for override tintColor logic
+    private var _tintColor: UIColor = Style.tintColor {
+        didSet { self.tintColor = self._tintColor }
     }
     
-    // MARK: - private
+    /// for override barStyle logic
+    private var _barStyle: UIBarStyle = Style.isWhiteBarStyle ? .black : .default {
+        didSet { self.barStyle = self._barStyle }
+    }
     
-    /// for override tintColor
-    private var _tintColor: UIColor = Style.tintColor
-    
-    /// for override barStyle
-    private var _barStyle: UIBarStyle = Style.isWhiteBarStyle ? .black : .default
-    
-    /// for override alpha
-    private var _alpha: CGFloat = Style.isHidden ? _NavigationBar.allowedMinAlpha : 1
+    /// for override alpha logic
+    private var _alpha: CGFloat = Style.isHidden ? _NavigationBar.allowedMinAlpha : 1 {
+        didSet { self.alpha = self._alpha }
+    }
     
     /// style
     private var style: Style?
