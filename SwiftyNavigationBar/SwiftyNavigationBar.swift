@@ -242,6 +242,25 @@ fileprivate class _ShadowImageView: UIImageView {
 /// _NavigationBar
 fileprivate class _NavigationBar: UINavigationBar {
     
+    // MARK: - For override system logic
+    /// tintColor
+    override var tintColor: UIColor! {
+        get { return super.tintColor }
+        set { super.tintColor = self._tintColor }
+    }
+    
+    /// barStyle
+    override var barStyle: UIBarStyle {
+        get { return super.barStyle }
+        set { super.barStyle = self._barStyle }
+    }
+    
+    /// alpha
+    override var alpha: CGFloat {
+        get { return super.alpha }
+        set { super.alpha = self._alpha }
+    }
+    
     // MARK: - fileprivate
     /// backgroundFakeBar
     let backgroundFakeBar = _FakeBar()
@@ -263,15 +282,17 @@ fileprivate class _NavigationBar: UINavigationBar {
         self.style = style
         
         // tintColor
-        self.tintColor = style.tintColor ?? self.preferenceStyle.tintColor ?? Style.tintColor
+        self._tintColor = style.tintColor ?? self.preferenceStyle.tintColor ?? Style.tintColor
+        self.tintColor = self._tintColor
         
         // isWhiteBarStyle
         let isWhiteBarStyle = style.isWhiteBarStyle ?? self.preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
         if isWhiteBarStyle {
-            self.barStyle = .black
+            self._barStyle = .black
         } else {
-            self.barStyle = .default
+            self._barStyle = .default
         }
+        self.barStyle = self._barStyle
         
         // shadowImageAlpha
         self.shadowImageView.alpha = style.shadowImageAlpha ?? self.preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
@@ -279,10 +300,11 @@ fileprivate class _NavigationBar: UINavigationBar {
         // isHidden
         let isHidden = style.isHidden ?? self.preferenceStyle.isHidden ?? Style.isHidden
         if isHidden {
-            self.alpha = _NavigationBar.allowedMinAlpha
+            self._alpha = _NavigationBar.allowedMinAlpha
         } else {
-            self.alpha = 1
+            self._alpha = 1
         }
+        self.alpha = self._alpha
     }
     
     /// update to style
@@ -294,7 +316,8 @@ fileprivate class _NavigationBar: UINavigationBar {
             let tintColor = style.tintColor ?? self.preferenceStyle.tintColor ?? Style.tintColor
             if tintColor != toTintColor {
                 style.tintColor = toTintColor
-                self.tintColor = toTintColor
+                self._tintColor = toTintColor
+                self.tintColor = self._tintColor
             }
         }
         
@@ -304,10 +327,11 @@ fileprivate class _NavigationBar: UINavigationBar {
             if isWhiteBarStyle != toIsWhiteBarStyle {
                 style.isWhiteBarStyle = toIsWhiteBarStyle
                 if toIsWhiteBarStyle {
-                    self.barStyle = .black
+                    self._barStyle = .black
                 } else {
-                    self.barStyle = .default
+                    self._barStyle = .default
                 }
+                self.barStyle = self._barStyle
             }
         }
         
@@ -326,10 +350,11 @@ fileprivate class _NavigationBar: UINavigationBar {
             if isHidden != toIsHidden {
                 style.isHidden = toIsHidden
                 if toIsHidden {
-                    self.alpha = _NavigationBar.allowedMinAlpha
+                    self._alpha = _NavigationBar.allowedMinAlpha
                 } else {
-                    self.alpha = 1
+                    self._alpha = 1
                 }
+                self.alpha = self._alpha
             }
         }
     }
@@ -393,6 +418,16 @@ fileprivate class _NavigationBar: UINavigationBar {
     }
     
     // MARK: - private
+    
+    /// for override tintColor
+    private var _tintColor: UIColor = Style.tintColor
+    
+    /// for override barStyle
+    private var _barStyle: UIBarStyle = Style.isWhiteBarStyle ? .black : .default
+    
+    /// for override alpha
+    private var _alpha: CGFloat = Style.isHidden ? _NavigationBar.allowedMinAlpha : 1
+    
     /// style
     private var style: Style?
     
