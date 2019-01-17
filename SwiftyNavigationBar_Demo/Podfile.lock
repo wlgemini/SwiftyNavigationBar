@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyNavigationBar (1.0.0)
+
+DEPENDENCIES:
+  - SwiftyNavigationBar (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftyNavigationBar:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftyNavigationBar: 08b3278aaf9d771fb353bdd6a0f01d1f35531726
+
+PODFILE CHECKSUM: 484669623df81a9559e2aef142f1e16eac77e2fa
+
+COCOAPODS: 1.6.0.beta.2

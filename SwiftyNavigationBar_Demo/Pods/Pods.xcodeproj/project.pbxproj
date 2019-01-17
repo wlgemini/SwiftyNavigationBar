@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C2B4EEC3290AEF9C1A54AE4672FCB0D /* SwiftyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1D79ADAE8CA539A5D33F8F1AA0F7F /* SwiftyNavigationBar.swift */; };
+		1B12504B15B4E0E6270F66A00376561B /* SwiftyNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B96A9B6430417E69E739829C9978AE5D /* SwiftyNavigationBar-dummy.m */; };
+		37B6160A90E3DDDE57C252F4BD044189 /* Pods-SwiftyNavigationBar_Demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B16142D8BCA6A3123A69F622A103E /* Pods-SwiftyNavigationBar_Demo-dummy.m */; };
+		D66135A4FEA75471121FF8E252D2D5B7 /* Pods-SwiftyNavigationBar_Demo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 12FD89D348D0D95D13A0E01F0F7AFABA /* Pods-SwiftyNavigationBar_Demo-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F4F40A48986AA68D2419DCB5CE468C65 /* SwiftyNavigationBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F1A13252823B22FC5E60EF7FB8460C /* SwiftyNavigationBar-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFE57682274A2C40CBFDB28ECF0ABC7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 25A324414B4E49A167A5AF6BDA31054A;
+			remoteInfo = SwiftyNavigationBar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		037D5FBF71E4F7B016918A2B3005EE35 /* SwiftyNavigationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyNavigationBar.xcconfig; sourceTree = "<group>"; };
+		0A17C9A0A2F852BCDA30FAAE09F9F30B /* libSwiftyNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSwiftyNavigationBar.a; path = libSwiftyNavigationBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DDF98252AE49FAFDD7DF63057201614 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		12FD89D348D0D95D13A0E01F0F7AFABA /* Pods-SwiftyNavigationBar_Demo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyNavigationBar_Demo-umbrella.h"; sourceTree = "<group>"; };
+		36CD57DAA6EC97C8BEEABAF691F04FB2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3C129C5CF1387B64649B2A5B270CA050 /* Pods-SwiftyNavigationBar_Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyNavigationBar_Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5894CCE6BFA87BD2AA98BF2781B8E1AB /* SwiftyNavigationBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyNavigationBar.modulemap; sourceTree = "<group>"; };
+		6F0D9D8FA05AA8196FE37F196C048BF0 /* Pods-SwiftyNavigationBar_Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyNavigationBar_Demo.modulemap"; sourceTree = "<group>"; };
+		8FB1D79ADAE8CA539A5D33F8F1AA0F7F /* SwiftyNavigationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyNavigationBar.swift; path = SwiftyNavigationBar/SwiftyNavigationBar.swift; sourceTree = "<group>"; };
+		953C835A7F98DAC203BADAE391ABFF81 /* SwiftyNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyNavigationBar-prefix.pch"; sourceTree = "<group>"; };
+		9A8B16142D8BCA6A3123A69F622A103E /* Pods-SwiftyNavigationBar_Demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyNavigationBar_Demo-dummy.m"; sourceTree = "<group>"; };
+		A027CEECB6004214A62717FB831EE468 /* Pods-SwiftyNavigationBar_Demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftyNavigationBar_Demo-acknowledgements.plist"; sourceTree = "<group>"; };
+		AF21FCCBE9A994160FDE71563BE974B0 /* libPods-SwiftyNavigationBar_Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SwiftyNavigationBar_Demo.a"; path = "libPods-SwiftyNavigationBar_Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B96A9B6430417E69E739829C9978AE5D /* SwiftyNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyNavigationBar-dummy.m"; sourceTree = "<group>"; };
+		ECC19580C31274CF5B6551C4686A357C /* Pods-SwiftyNavigationBar_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyNavigationBar_Demo.release.xcconfig"; sourceTree = "<group>"; };
+		ED58AD8790E5CDA00363ECB15C1A563D /* SwiftyNavigationBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftyNavigationBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F2F1A13252823B22FC5E60EF7FB8460C /* SwiftyNavigationBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyNavigationBar-umbrella.h"; sourceTree = "<group>"; };
+		F313321E0FADCAD2D4D3E88BBAF179DC /* Pods-SwiftyNavigationBar_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyNavigationBar_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1ED0DA5C78FC6891E1581C5DD16CCAF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9E390D7D12554B25238BF7DE3D3C06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3018F502B1A35C035C459425BA2E35DA /* Pods-SwiftyNavigationBar_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6F0D9D8FA05AA8196FE37F196C048BF0 /* Pods-SwiftyNavigationBar_Demo.modulemap */,
+				3C129C5CF1387B64649B2A5B270CA050 /* Pods-SwiftyNavigationBar_Demo-acknowledgements.markdown */,
+				A027CEECB6004214A62717FB831EE468 /* Pods-SwiftyNavigationBar_Demo-acknowledgements.plist */,
+				9A8B16142D8BCA6A3123A69F622A103E /* Pods-SwiftyNavigationBar_Demo-dummy.m */,
+				12FD89D348D0D95D13A0E01F0F7AFABA /* Pods-SwiftyNavigationBar_Demo-umbrella.h */,
+				F313321E0FADCAD2D4D3E88BBAF179DC /* Pods-SwiftyNavigationBar_Demo.debug.xcconfig */,
+				ECC19580C31274CF5B6551C4686A357C /* Pods-SwiftyNavigationBar_Demo.release.xcconfig */,
+			);
+			name = "Pods-SwiftyNavigationBar_Demo";
+			path = "Target Support Files/Pods-SwiftyNavigationBar_Demo";
+			sourceTree = "<group>";
+		};
+		30EE9CBD585901F82B28AB876B3E341A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3018F502B1A35C035C459425BA2E35DA /* Pods-SwiftyNavigationBar_Demo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		34C8EEE24FE66FCC41B0E44BA28E722E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				36CD57DAA6EC97C8BEEABAF691F04FB2 /* LICENSE */,
+				0DDF98252AE49FAFDD7DF63057201614 /* README.md */,
+				ED58AD8790E5CDA00363ECB15C1A563D /* SwiftyNavigationBar.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		57C542B5F166A6C3B2B5F2E7D4A78A8D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5894CCE6BFA87BD2AA98BF2781B8E1AB /* SwiftyNavigationBar.modulemap */,
+				037D5FBF71E4F7B016918A2B3005EE35 /* SwiftyNavigationBar.xcconfig */,
+				B96A9B6430417E69E739829C9978AE5D /* SwiftyNavigationBar-dummy.m */,
+				953C835A7F98DAC203BADAE391ABFF81 /* SwiftyNavigationBar-prefix.pch */,
+				F2F1A13252823B22FC5E60EF7FB8460C /* SwiftyNavigationBar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "SwiftyNavigationBar_Demo/Pods/Target Support Files/SwiftyNavigationBar";
+			sourceTree = "<group>";
+		};
+		72D06E4AD96193E87B7E2F8895E08E4F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF21FCCBE9A994160FDE71563BE974B0 /* libPods-SwiftyNavigationBar_Demo.a */,
+				0A17C9A0A2F852BCDA30FAAE09F9F30B /* libSwiftyNavigationBar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */,
+				8671E07DC922B3A89B19E8699E4B4B5B /* Development Pods */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				72D06E4AD96193E87B7E2F8895E08E4F /* Products */,
+				30EE9CBD585901F82B28AB876B3E341A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8671E07DC922B3A89B19E8699E4B4B5B /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D333576D49EC069F3214952DFB261F0E /* SwiftyNavigationBar */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		D333576D49EC069F3214952DFB261F0E /* SwiftyNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				8FB1D79ADAE8CA539A5D33F8F1AA0F7F /* SwiftyNavigationBar.swift */,
+				34C8EEE24FE66FCC41B0E44BA28E722E /* Pod */,
+				57C542B5F166A6C3B2B5F2E7D4A78A8D /* Support Files */,
+			);
+			name = SwiftyNavigationBar;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ABB625D0C4DF3FEC27FCC96FCF72DD67 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4F40A48986AA68D2419DCB5CE468C65 /* SwiftyNavigationBar-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97E272E5471FEE3454B7B4466E637B6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D66135A4FEA75471121FF8E252D2D5B7 /* Pods-SwiftyNavigationBar_Demo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		25A324414B4E49A167A5AF6BDA31054A /* SwiftyNavigationBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECC6BB27B9A84DCCAE22D7B320671788 /* Build configuration list for PBXNativeTarget "SwiftyNavigationBar" */;
+			buildPhases = (
+				ABB625D0C4DF3FEC27FCC96FCF72DD67 /* Headers */,
+				DC55F8B533B4CFA024B55D23FE36DB31 /* Sources */,
+				AF9E390D7D12554B25238BF7DE3D3C06 /* Frameworks */,
+				2BE1F22CD73CBC02F779267ED3DB8BD5 /* Copy generated compatibility header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyNavigationBar;
+			productName = SwiftyNavigationBar;
+			productReference = 0A17C9A0A2F852BCDA30FAAE09F9F30B /* libSwiftyNavigationBar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9772748429EBB6D9D668CA0B65255B40 /* Pods-SwiftyNavigationBar_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDC034CCFC6AD2EA8A2768F07FC2E7AD /* Build configuration list for PBXNativeTarget "Pods-SwiftyNavigationBar_Demo" */;
+			buildPhases = (
+				D97E272E5471FEE3454B7B4466E637B6 /* Headers */,
+				FFE12C47DF1EDFD5EFAD5D0E72D13918 /* Sources */,
+				1ED0DA5C78FC6891E1581C5DD16CCAF9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C516996CB358B4F2CA0185E996019C59 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftyNavigationBar_Demo";
+			productName = "Pods-SwiftyNavigationBar_Demo";
+			productReference = AF21FCCBE9A994160FDE71563BE974B0 /* libPods-SwiftyNavigationBar_Demo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 72D06E4AD96193E87B7E2F8895E08E4F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9772748429EBB6D9D668CA0B65255B40 /* Pods-SwiftyNavigationBar_Demo */,
+				25A324414B4E49A167A5AF6BDA31054A /* SwiftyNavigationBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BE1F22CD73CBC02F779267ED3DB8BD5 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/SwiftyNavigationBar/SwiftyNavigationBar.modulemap",
+				"${PODS_ROOT}/Headers/Public/SwiftyNavigationBar/SwiftyNavigationBar-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/SwiftyNavigationBar-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/SwiftyNavigationBar/SwiftyNavigationBar.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/SwiftyNavigationBar/SwiftyNavigationBar-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
+			showEnvVarsInLog = 1;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC55F8B533B4CFA024B55D23FE36DB31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B12504B15B4E0E6270F66A00376561B /* SwiftyNavigationBar-dummy.m in Sources */,
+				0C2B4EEC3290AEF9C1A54AE4672FCB0D /* SwiftyNavigationBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFE12C47DF1EDFD5EFAD5D0E72D13918 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37B6160A90E3DDDE57C252F4BD044189 /* Pods-SwiftyNavigationBar_Demo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C516996CB358B4F2CA0185E996019C59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyNavigationBar;
+			target = 25A324414B4E49A167A5AF6BDA31054A /* SwiftyNavigationBar */;
+			targetProxy = FFE57682274A2C40CBFDB28ECF0ABC7D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11D027BD8219E71225D197BACF78F7C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		21E294D9D4D8F06F597E30C418DCA9BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F313321E0FADCAD2D4D3E88BBAF179DC /* Pods-SwiftyNavigationBar_Demo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftyNavigationBar_Demo/Pods-SwiftyNavigationBar_Demo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FB57296A2B59949708C2B492C4646D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		992009EB577067359706A2758AD0BB78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 037D5FBF71E4F7B016918A2B3005EE35 /* SwiftyNavigationBar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyNavigationBar/SwiftyNavigationBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/SwiftyNavigationBar/SwiftyNavigationBar.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SwiftyNavigationBar;
+				PRODUCT_NAME = SwiftyNavigationBar;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA5BA2C25CD2136DCBAA06A4A1AF07B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECC19580C31274CF5B6551C4686A357C /* Pods-SwiftyNavigationBar_Demo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftyNavigationBar_Demo/Pods-SwiftyNavigationBar_Demo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F25A7CAD60B6E8E17DEE0EB7CAD9F9A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 037D5FBF71E4F7B016918A2B3005EE35 /* SwiftyNavigationBar.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyNavigationBar/SwiftyNavigationBar-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/SwiftyNavigationBar/SwiftyNavigationBar.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SwiftyNavigationBar;
+				PRODUCT_NAME = SwiftyNavigationBar;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11D027BD8219E71225D197BACF78F7C1 /* Debug */,
+				8FB57296A2B59949708C2B492C4646D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECC6BB27B9A84DCCAE22D7B320671788 /* Build configuration list for PBXNativeTarget "SwiftyNavigationBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F25A7CAD60B6E8E17DEE0EB7CAD9F9A1 /* Debug */,
+				992009EB577067359706A2758AD0BB78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDC034CCFC6AD2EA8A2768F07FC2E7AD /* Build configuration list for PBXNativeTarget "Pods-SwiftyNavigationBar_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21E294D9D4D8F06F597E30C418DCA9BF /* Debug */,
+				AA5BA2C25CD2136DCBAA06A4A1AF07B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

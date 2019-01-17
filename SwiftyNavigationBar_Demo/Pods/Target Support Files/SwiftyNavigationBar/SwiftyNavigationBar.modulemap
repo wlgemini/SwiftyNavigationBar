@@ -1,0 +1,6 @@
+module SwiftyNavigationBar {
+  umbrella header "SwiftyNavigationBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

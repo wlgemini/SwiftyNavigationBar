@@ -1,0 +1,6 @@
+module Pods_SwiftyNavigationBar_Demo {
+  umbrella header "Pods-SwiftyNavigationBar_Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
