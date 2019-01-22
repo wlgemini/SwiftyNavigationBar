@@ -34,8 +34,27 @@ public class Style {
         /// blur effect
         case blur(UIBlurEffect.Style)
         
+        /// image
+        case image(UIImage, UIView.ContentMode)
+        
         /// color
         case color(UIColor)
+        
+        /// ==
+        public static func == (lhs: Effect, rhs: Effect) -> Bool {
+            if case .blur(let styleL) = lhs, case .blur(let styleR) = rhs {
+                return styleL == styleR
+            }
+            else if case .image(let imageL, let modeL) = lhs, case .image(let imageR, let modeR) = rhs {
+                return imageL.pngData() == imageR.pngData() && modeL == modeR
+            }
+            else if case .color(let colorL) = lhs, case .color(let colorR) = rhs {
+                return colorL == colorR
+            }
+            else {
+                return false
+            }
+        }
     }
     
     
@@ -60,9 +79,10 @@ public class Style {
     /// update style instantly
     public func update(_ setting: (Style) -> Void) {
         guard let navBar = self._viewController?.navigationController?._manager?.navigationBar else { return }
+        
         let toStyle = Style()
         setting(toStyle)
-        navBar.updateNavigationBarAndBackgroundFakeBarStyle(style: self, toStyle: toStyle)
+        navBar.update(fromStyle: self, toStyle: toStyle)
     }
     
     // MARK: - Private
@@ -158,49 +178,93 @@ public extension UINavigationController {
 
 
 /// _FakeBar
-fileprivate class _FakeBar: UIVisualEffectView {
+fileprivate class _FakeBar: UIView {
     
-    /// preference style
-    var preferenceStyle: Style!
+    // MARK: - For override system logic
+    /// init
+    convenience init() {
+        self.init(frame: .zero)
+        
+        // _blurView
+        self._blurView = UIVisualEffectView()
+        self.addSubview(self._blurView)
+        
+        // _imageView
+        self._imageView = UIImageView()
+        self._imageView.clipsToBounds = true
+        self.addSubview(self._imageView)
+        
+        // _colorView
+        self._colorView = UIView()
+        self.addSubview(self._colorView)
+    }
     
+    /// layoutSubviews
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self._blurView.frame = self.bounds
+        self._imageView.frame = self.bounds
+        self._colorView.frame = self.bounds
+    }
+    
+    // MARK: - Fileprivate
     /// set style
-    func setStyle(_ style: Style) {
+    func setStyle(_ style: Style, preferenceStyle: Style) {
         // backgroundEffect
-        let backgroundEffect = style.backgroundEffect ?? self.preferenceStyle.backgroundEffect ?? Style.backgroundEffect
+        let backgroundEffect = style.backgroundEffect ?? preferenceStyle.backgroundEffect ?? Style.backgroundEffect
+        self._blurView.isHidden = true
+        self._imageView.isHidden = true
+        self._colorView.isHidden = true
         switch backgroundEffect {
         case .blur(let b):
-            self.effect = UIBlurEffect(style: b)
-            self.backgroundColor = nil
+            self._blurView.effect = UIBlurEffect(style: b)
+            self._blurView.isHidden = false
+            
+        case .image(let i, let c):
+            self._imageView.image = i
+            self._imageView.contentMode = c
+            self._imageView.isHidden = false
+            
         case .color(let c):
-            self.effect = nil
-            self.backgroundColor = c
+            self._colorView.backgroundColor = c
+            self._colorView.isHidden = false
         }
         
         // backgroundAlpha
-        self.alpha = style.backgroundAlpha ?? self.preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+        self.alpha = style.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
     }
     
     /// update to style
-    func updateStyle(_ style: Style, toStyle: Style) {
+    func updateStyle(_ style: Style, toStyle: Style, preferenceStyle: Style) {
         // backgroundEffect
         if let toBackgroundEffect = toStyle.backgroundEffect {
-            let backgroundEffect = style.backgroundEffect ?? self.preferenceStyle.backgroundEffect ?? Style.backgroundEffect
+            let backgroundEffect = style.backgroundEffect ?? preferenceStyle.backgroundEffect ?? Style.backgroundEffect
             if backgroundEffect != toBackgroundEffect {
                 style.backgroundEffect = toBackgroundEffect
+                self._blurView.isHidden = true
+                self._imageView.isHidden = true
+                self._colorView.isHidden = true
                 switch toBackgroundEffect {
                 case .blur(let b):
-                    self.effect = UIBlurEffect(style: b)
-                    self.backgroundColor = nil
+                    self._blurView.effect = UIBlurEffect(style: b)
+                    self._blurView.isHidden = false
+                    
+                case .image(let i, let c):
+                    self._imageView.image = i
+                    self._imageView.contentMode = c
+                    self._imageView.isHidden = false
+                    
                 case .color(let c):
-                    self.effect = nil
-                    self.backgroundColor = c
+                    self._colorView.backgroundColor = c
+                    self._colorView.isHidden = false
                 }
             }
         }
         
         // backgroundAlpha
         if let toBackgroundAlpha = toStyle.backgroundAlpha {
-            let backgroundAlpha = style.backgroundAlpha ?? self.preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+            let backgroundAlpha = style.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
             if backgroundAlpha != toBackgroundAlpha {
                 style.backgroundAlpha = toBackgroundAlpha
                 self.alpha = toBackgroundAlpha
@@ -225,6 +289,11 @@ fileprivate class _FakeBar: UIVisualEffectView {
             return false
         }
     }
+    
+    // MARK: - Private
+    private var _blurView: UIVisualEffectView!
+    private var _imageView: UIImageView!
+    private var _colorView: UIView!
 }
 
 
@@ -271,39 +340,41 @@ fileprivate class _NavigationBar: UINavigationBar {
         let y = self.frame.origin.y
         
         // backgroundFakeBar
-        self.backgroundFakeBar.frame = CGRect(x: 0, y: -y, width: w, height: h + y)
-        self.insertSubview(self.backgroundFakeBar, at: 0)
+        self._backgroundFakeBar.frame = CGRect(x: 0, y: -y, width: w, height: h + y)
+        self.insertSubview(self._backgroundFakeBar, at: 0)
         
         // shadowImageView
-        self.shadowImageView.frame = CGRect(x: x, y: h, width: w, height: 0.25)
-        self.insertSubview(self.shadowImageView, at: 1)
+        self._shadowImageView.frame = CGRect(x: x, y: h, width: w, height: 0.25)
+        self.insertSubview(self._shadowImageView, at: 1)
     }
     
     // MARK: - fileprivate
-    /// backgroundFakeBar
-    let backgroundFakeBar = _FakeBar()
-    
-    /// shadowImageView
-    let shadowImageView = _ShadowImageView()
-    
     /// preference style
-    var preferenceStyle: Style! {
-        didSet {
-            self.backgroundFakeBar.preferenceStyle = self.preferenceStyle
-            self.fromFakeBar.preferenceStyle = self.preferenceStyle
-            self.toFakeBar.preferenceStyle = self.preferenceStyle
-        }
+    var preferenceStyle: Style?
+    
+    /// isBackgroundFakeBarHidden
+    var isBackgroundFakeBarHidden: Bool {
+        get { return self._backgroundFakeBar.isHidden }
+        set { self._backgroundFakeBar.isHidden = newValue }
     }
     
     /// set style
     func setStyle(_ style: Style) {
-        self.style = style
+        // preferenceStyle
+        guard let preferenceStyle = self.preferenceStyle else { return }
+        // style
+        self._style = style
+        
+        // backgroundFakeBar (without animation)
+        UIView.performWithoutAnimation {
+            self._backgroundFakeBar.setStyle(style, preferenceStyle: preferenceStyle)
+        }
         
         // tintColor
-        self._tintColor = style.tintColor ?? self.preferenceStyle.tintColor ?? Style.tintColor
+        self._tintColor = style.tintColor ?? preferenceStyle.tintColor ?? Style.tintColor
         
         // isWhiteBarStyle
-        let isWhiteBarStyle = style.isWhiteBarStyle ?? self.preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
+        let isWhiteBarStyle = style.isWhiteBarStyle ?? preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
         if isWhiteBarStyle {
             self._barStyle = .black
         } else {
@@ -311,24 +382,32 @@ fileprivate class _NavigationBar: UINavigationBar {
         }
         
         // shadowImageAlpha
-        self.shadowImageView.alpha = style.shadowImageAlpha ?? self.preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
+        self._shadowImageView.alpha = style.shadowImageAlpha ?? preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
         
         // isHidden
-        let isHidden = style.isHidden ?? self.preferenceStyle.isHidden ?? Style.isHidden
+        let isHidden = style.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
         if isHidden {
-            self._alpha = _NavigationBar.allowedMinAlpha
+            self._alpha = _NavigationBar._allowedMinAlpha
         } else {
             self._alpha = 1
         }
     }
     
     /// update to style
-    func updateToStyle(_ toStyle: Style) {
-        guard let style = self.style else { return }
+    func update(fromStyle: Style, toStyle: Style) {
+        // style
+        guard let style = self._style else { return }
+        // preferenceStyle
+        guard let preferenceStyle = self.preferenceStyle else { return }
+        // there must be the same reference, else something wrong happened.
+        guard style === fromStyle else { return }
+        
+        // backgroundFakeBar
+        self._backgroundFakeBar.updateStyle(style, toStyle: toStyle, preferenceStyle: preferenceStyle)
         
         // tintColor
         if let toTintColor = toStyle.tintColor {
-            let tintColor = style.tintColor ?? self.preferenceStyle.tintColor ?? Style.tintColor
+            let tintColor = style.tintColor ?? preferenceStyle.tintColor ?? Style.tintColor
             if tintColor != toTintColor {
                 style.tintColor = toTintColor
                 self._tintColor = toTintColor
@@ -337,7 +416,7 @@ fileprivate class _NavigationBar: UINavigationBar {
         
         // isWhiteBarStyle
         if let toIsWhiteBarStyle = toStyle.isWhiteBarStyle {
-            let isWhiteBarStyle = style.isWhiteBarStyle ?? self.preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
+            let isWhiteBarStyle = style.isWhiteBarStyle ?? preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
             if isWhiteBarStyle != toIsWhiteBarStyle {
                 style.isWhiteBarStyle = toIsWhiteBarStyle
                 if toIsWhiteBarStyle {
@@ -350,20 +429,20 @@ fileprivate class _NavigationBar: UINavigationBar {
         
         // shadowImageAlpha
         if let toShadowImageAlpha = toStyle.shadowImageAlpha {
-            let shadowImageAlpha = style.shadowImageAlpha ?? self.preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
+            let shadowImageAlpha = style.shadowImageAlpha ?? preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
             if shadowImageAlpha != toShadowImageAlpha {
                 style.shadowImageAlpha = toShadowImageAlpha
-                self.shadowImageView.alpha = toShadowImageAlpha
+                self._shadowImageView.alpha = toShadowImageAlpha
             }
         }
         
         // isHidden
         if let toIsHidden = toStyle.isHidden {
-            let isHidden = style.isHidden ?? self.preferenceStyle.isHidden ?? Style.isHidden
+            let isHidden = style.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
             if isHidden != toIsHidden {
                 style.isHidden = toIsHidden
                 if toIsHidden {
-                    self._alpha = _NavigationBar.allowedMinAlpha
+                    self._alpha = _NavigationBar._allowedMinAlpha
                 } else {
                     self._alpha = 1
                 }
@@ -371,30 +450,20 @@ fileprivate class _NavigationBar: UINavigationBar {
         }
     }
     
-    /// update navigationBar and backgroundFakeBar style
-    func updateNavigationBarAndBackgroundFakeBarStyle(style: Style, toStyle: Style) {
-        // there must be the same reference, else something wrong happened.
-        guard self.style === style else { return }
-        
-        // update navigationBar and backgroundFakeBar style
-        self.backgroundFakeBar.updateStyle(style, toStyle: toStyle)
-        self.updateToStyle(toStyle)
-    }
-    
     /// add fromfakeBar to fromVC
     func addFromFakeBar(to fromVC: UIViewController) {
-        self.addFakeBar(fakeBar: self.fromFakeBar, to: fromVC)
+        self.addFakeBar(fakeBar: self._fromFakeBar, to: fromVC)
     }
     
     /// add tofakeBar to toVC
     func addToFakeBar(to toVC: UIViewController) {
-        self.addFakeBar(fakeBar: self.toFakeBar, to: toVC)
+        self.addFakeBar(fakeBar: self._toFakeBar, to: toVC)
     }
     
     /// remove fromFakeBar and toFakeBar from superview
     func removeToAndFromFakeBar() {
-        self.fromFakeBar.removeFromSuperview()
-        self.toFakeBar.removeFromSuperview()
+        self._fromFakeBar.removeFromSuperview()
+        self._toFakeBar.removeFromSuperview()
     }
     
     /// is same style for transition
@@ -423,30 +492,38 @@ fileprivate class _NavigationBar: UINavigationBar {
     }
     
     /// for override alpha logic
-    private var _alpha: CGFloat = Style.isHidden ? _NavigationBar.allowedMinAlpha : 1 {
+    private var _alpha: CGFloat = Style.isHidden ? _NavigationBar._allowedMinAlpha : 1 {
         didSet { self.alpha = self._alpha }
     }
     
     /// style
-    private var style: Style?
+    private var _style: Style?
+    
+    /// backgroundFakeBar
+    private let _backgroundFakeBar = _FakeBar()
+    
+    /// shadowImageView
+    private let _shadowImageView = _ShadowImageView()
     
     /// fromFakeBar
-    private let fromFakeBar = _FakeBar()
+    private let _fromFakeBar = _FakeBar()
     
     /// toFakeBar
-    private let toFakeBar = _FakeBar()
+    private let _toFakeBar = _FakeBar()
     
     /// allowed min alpha
-    private static let allowedMinAlpha: CGFloat = 0.001
+    private static let _allowedMinAlpha: CGFloat = 0.001
     
     /// add fakeBar to ViewController
     private func addFakeBar(fakeBar: _FakeBar, to vc: UIViewController) {
         guard let preferenceStyle = self.preferenceStyle else { return }
         
-        fakeBar.setStyle(vc.snb)
-        fakeBar.isHidden = vc.snb.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
-        fakeBar.frame = CGRect(origin: vc.view.bounds.origin, size: self.backgroundFakeBar.bounds.size)
-        vc.view.addSubview(fakeBar)
+        UIView.performWithoutAnimation {
+            fakeBar.setStyle(vc.snb, preferenceStyle: preferenceStyle)
+            fakeBar.isHidden = vc.snb.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
+            fakeBar.frame = CGRect(origin: vc.view.bounds.origin, size: self._backgroundFakeBar.bounds.size)
+            vc.view.addSubview(fakeBar)
+        }
     }
 }
 
@@ -479,24 +556,22 @@ fileprivate class _Manager: NSObject, UINavigationControllerDelegate {
     @objc func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         let transitionCoordinator = self.navigationController.transitionCoordinator
         let navBar = self.navigationBar
+        guard let preferenceStyle = navBar.preferenceStyle else { return }
         
         if let coordinator = transitionCoordinator { // transition with animation
             coordinator.animate(alongsideTransition: { (ctx) in
                 guard let fromVC = ctx.viewController(forKey: .from), let toVC = ctx.viewController(forKey: .to) else { return }
                 
                 // set fake bar style without animation, if there are not same style for transition.
-                if _NavigationBar.isSameStyle(lhs: fromVC.snb, rhs: toVC.snb, preferenceStyle: navBar.preferenceStyle) == false {
-                    UIView.performWithoutAnimation {
-                        // add fromFakeBar to fromVC
-                        navBar.addFromFakeBar(to: fromVC)
-                        
-                        // add toFakeBar to toVC
-                        navBar.addToFakeBar(to: toVC)
-                        
-                        // set backgroundFakeBar
-                        navBar.backgroundFakeBar.setStyle(toVC.snb)
-                        navBar.backgroundFakeBar.isHidden = true
-                    }
+                if _NavigationBar.isSameStyle(lhs: fromVC.snb, rhs: toVC.snb, preferenceStyle: preferenceStyle) == false {
+                    // add fromFakeBar to fromVC
+                    navBar.addFromFakeBar(to: fromVC)
+                    
+                    // add toFakeBar to toVC
+                    navBar.addToFakeBar(to: toVC)
+                    
+                    // hidden backgroundFakeBar
+                    navBar.isBackgroundFakeBarHidden = true
                 }
                 
                 // set navigationBar style with animation
@@ -510,17 +585,15 @@ fileprivate class _Manager: NSObject, UINavigationControllerDelegate {
                 
                 // rollback navigationBar and backgroundFakeBar style if transition is cancelled
                 if ctx.isCancelled {
-                    navBar.backgroundFakeBar.setStyle(fromVC.snb)
                     navBar.setStyle(fromVC.snb)
                 }
                 
                 // show backgroundFakeBar
-                navBar.backgroundFakeBar.isHidden = false
+                navBar.isBackgroundFakeBarHidden = false
             }
         } else { // transition without animation
             // set navigationBar and backgroundFakeBar style
             let toVC = viewController
-            navBar.backgroundFakeBar.setStyle(toVC.snb)
             navBar.setStyle(toVC.snb)
         }
     }
