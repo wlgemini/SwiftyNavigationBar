@@ -14,39 +14,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
+        // 设置全局样式
         Style.isWhiteBarStyle = false
+        Style.shadowImageAlpha = 1
         
-        let vc0 = TableViewController()
-        let nav0 = UINavigationController(rootViewController: vc0) { (style) in
+        // settingNav
+        let settingNav = UINavigationController(rootViewController: SettingViewController(), preference: { (style) in
             style.backgroundEffect = .blur(.light)
-        }
-        nav0.tabBarItem = UITabBarItem(title: "VC0", image: nil, selectedImage: nil)
+        })
+        settingNav.tabBarItem = UITabBarItem(title: "Setting", image: nil, selectedImage: nil)
         
-        let vc1 = TableViewController()
-        let nav1 = UINavigationController(rootViewController: vc1) { (style) in
-            style.backgroundEffect = .blur(.dark)
-        }
-        nav1.tabBarItem = UITabBarItem(title: "VC1", image: nil, selectedImage: nil)
+        // mineNav
+        let mineNav = UINavigationController(rootViewController: MineViewController(), preference: nil)
+        mineNav.tabBarItem = UITabBarItem(title: "Mine", image: nil, selectedImage: nil)
         
-        let vc2 = TableViewController()
-        let nav2 = UINavigationController(rootViewController: vc2) { (style) in
-            style.backgroundEffect = .color(.gray)
-        }
-        nav2.tabBarItem = UITabBarItem(title: "VC2", image: nil, selectedImage: nil)
-        
-        let vc3 = TableViewController()
-        let nav3 = UINavigationController(rootViewController: vc3) { (style) in
-            style.backgroundEffect = .color(.black)
-        }
-        nav3.tabBarItem = UITabBarItem(title: "VC3", image: nil, selectedImage: nil)
-        
+        // tabBar
         let tabBar = UITabBarController()
-        tabBar.viewControllers = [nav0, nav1, nav2, nav3]
+        tabBar.viewControllers = [settingNav, mineNav]
+        
         
         self.window?.rootViewController = tabBar
         self.window?.makeKeyAndVisible()
         return true
     }
-    
 }
 

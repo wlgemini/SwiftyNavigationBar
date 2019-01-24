@@ -73,8 +73,8 @@ public class Style {
     /// set navigationBar's shadowImageAlpha, default: 1
     public var shadowImageAlpha: CGFloat?
     
-    /// set navigationBar's isHidden, default: false
-    public var isHidden: Bool?
+    /// set navigationBar's alpha, default: 1
+    public var alpha: CGFloat?
     
     /// update style instantly
     public func update(_ setting: (Style) -> Void) {
@@ -118,8 +118,8 @@ extension Style {
     /// set navigationBar's shadowImageAlpha, default: 1
     public static var shadowImageAlpha: CGFloat = 1
     
-    /// set navigationBar's isHidden, default: false
-    public static var isHidden: Bool = false
+    /// set navigationBar's alpha, default: 1
+    public static var alpha: CGFloat = 1
 }
 
 
@@ -384,13 +384,8 @@ fileprivate class _NavigationBar: UINavigationBar {
         // shadowImageAlpha
         self._shadowImageView.alpha = style.shadowImageAlpha ?? preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
         
-        // isHidden
-        let isHidden = style.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
-        if isHidden {
-            self._alpha = _NavigationBar._allowedMinAlpha
-        } else {
-            self._alpha = 1
-        }
+        // alpha
+        self._alpha = style.alpha ?? preferenceStyle.alpha ?? Style.alpha
     }
     
     /// update to style
@@ -436,16 +431,12 @@ fileprivate class _NavigationBar: UINavigationBar {
             }
         }
         
-        // isHidden
-        if let toIsHidden = toStyle.isHidden {
-            let isHidden = style.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
-            if isHidden != toIsHidden {
-                style.isHidden = toIsHidden
-                if toIsHidden {
-                    self._alpha = _NavigationBar._allowedMinAlpha
-                } else {
-                    self._alpha = 1
-                }
+        // alpha
+        if let toAlpha = toStyle.alpha {
+            let alpha = style.alpha ?? preferenceStyle.alpha ?? Style.alpha
+            if alpha != toAlpha {
+                style.alpha = toAlpha
+                self._alpha = toAlpha
             }
         }
     }
@@ -468,12 +459,12 @@ fileprivate class _NavigationBar: UINavigationBar {
     
     /// is same style for transition
     static func isSameStyle(lhs: Style, rhs: Style, preferenceStyle: Style) -> Bool {
-        // isHidden
-        let isHiddenL = lhs.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
-        let isHiddenR = rhs.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
+        // alpha
+        let alphaL = lhs.alpha ?? preferenceStyle.alpha ?? Style.alpha
+        let alphaR = rhs.alpha ?? preferenceStyle.alpha ?? Style.alpha
         
         // check is same Style
-        if isHiddenL == isHiddenR && _FakeBar.isSameStyle(lhs: lhs, rhs: rhs, preferenceStyle: preferenceStyle) {
+        if alphaL == alphaR && _FakeBar.isSameStyle(lhs: lhs, rhs: rhs, preferenceStyle: preferenceStyle) {
             return true
         } else {
             return false
@@ -492,7 +483,7 @@ fileprivate class _NavigationBar: UINavigationBar {
     }
     
     /// for override alpha logic
-    private var _alpha: CGFloat = Style.isHidden ? _NavigationBar._allowedMinAlpha : 1 {
+    private var _alpha: CGFloat = Style.alpha {
         didSet { self.alpha = self._alpha }
     }
     
@@ -511,16 +502,13 @@ fileprivate class _NavigationBar: UINavigationBar {
     /// toFakeBar
     private let _toFakeBar = _FakeBar()
     
-    /// allowed min alpha
-    private static let _allowedMinAlpha: CGFloat = 0.001
-    
     /// add fakeBar to ViewController
     private func addFakeBar(fakeBar: _FakeBar, to vc: UIViewController) {
         guard let preferenceStyle = self.preferenceStyle else { return }
         
         UIView.performWithoutAnimation {
             fakeBar.setStyle(vc.snb, preferenceStyle: preferenceStyle)
-            fakeBar.isHidden = vc.snb.isHidden ?? preferenceStyle.isHidden ?? Style.isHidden
+            fakeBar.alpha = vc.snb.alpha ?? preferenceStyle.alpha ?? Style.alpha
             fakeBar.frame = CGRect(origin: vc.view.bounds.origin, size: self._backgroundFakeBar.bounds.size)
             vc.view.addSubview(fakeBar)
         }
