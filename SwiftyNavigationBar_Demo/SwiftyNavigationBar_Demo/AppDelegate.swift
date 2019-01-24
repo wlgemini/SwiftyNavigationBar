@@ -24,13 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         settingNav.tabBarItem = UITabBarItem(title: "Setting", image: nil, selectedImage: nil)
         
-        // mineNav
-        let mineNav = UINavigationController(rootViewController: MineViewController(), preference: nil)
-        mineNav.tabBarItem = UITabBarItem(title: "Mine", image: nil, selectedImage: nil)
-        
         // tabBar
         let tabBar = UITabBarController()
-        tabBar.viewControllers = [settingNav, mineNav]
+        tabBar.viewControllers = [settingNav]
         
         
         self.window?.rootViewController = tabBar

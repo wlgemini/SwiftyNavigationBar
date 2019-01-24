@@ -59,22 +59,76 @@ public class Style {
     
     
     /// set navigationBar.backgroundView's backgroundEffect, default: .blur(.light)
-    public var backgroundEffect: Style.Effect?
+    public var backgroundEffect: Style.Effect? {
+        get { return self._backgroundEffect }
+        set { self._backgroundEffect = newValue }
+    }
 
     /// set navigationBar.backgroundView's backgroundAlpha, default: 1
-    public var backgroundAlpha: CGFloat?
+    public var backgroundAlpha: CGFloat? {
+        get { return self._backgroundAlpha }
+        set {
+            if let nv = newValue {
+                if nv > 1 {
+                    self._backgroundAlpha = 1
+                } else if nv < 0 {
+                    self._backgroundAlpha = 0
+                } else {
+                    self._backgroundAlpha = nv
+                }
+            } else {
+                self._backgroundAlpha = newValue
+            }
+        }
+    }
     
     /// set navigationBar's tintColor, default: black
-    public var tintColor: UIColor?
+    public var tintColor: UIColor? {
+        get { return self._tintColor }
+        set { self._tintColor = newValue }
+    }
     
     /// set navigationBar's isWhiteBarStyle, default: false
-    public var isWhiteBarStyle: Bool?
+    public var isWhiteBarStyle: Bool? {
+        get { return self._isWhiteBarStyle }
+        set { self._isWhiteBarStyle = newValue }
+    }
 
     /// set navigationBar's shadowImageAlpha, default: 1
-    public var shadowImageAlpha: CGFloat?
+    public var shadowImageAlpha: CGFloat? {
+        get { return self._shadowImageAlpha }
+        set {
+            if let nv = newValue {
+                if nv > 1 {
+                    self._shadowImageAlpha = nv
+                } else if nv < 0 {
+                    self._shadowImageAlpha = 0
+                } else {
+                    self._shadowImageAlpha = nv
+                }
+            } else {
+                self._shadowImageAlpha = newValue
+            }
+        }
+    }
     
     /// set navigationBar's alpha, default: 1
-    public var alpha: CGFloat?
+    public var alpha: CGFloat? {
+        get { return self._alpha }
+        set {
+            if let nv = newValue {
+                if nv > 1 {
+                    self._alpha = 1
+                } else if nv < 0 {
+                    self._alpha = 0
+                } else {
+                    self._alpha = nv
+                }
+            } else {
+                self._alpha = newValue
+            }
+        }
+    }
     
     /// update style instantly
     public func update(_ setting: (Style) -> Void) {
@@ -86,6 +140,14 @@ public class Style {
     }
     
     // MARK: - Private
+    /// Style property's backstore
+    private var _backgroundEffect: Style.Effect?
+    private var _backgroundAlpha: CGFloat?
+    private var _tintColor: UIColor?
+    private var _isWhiteBarStyle: Bool?
+    private var _shadowImageAlpha: CGFloat?
+    private var _alpha: CGFloat?
+    
     /// _viewController
     private weak var _viewController: UIViewController?
     
@@ -348,7 +410,7 @@ fileprivate class _NavigationBar: UINavigationBar {
         self.insertSubview(self._shadowImageView, at: 1)
     }
     
-    // MARK: - fileprivate
+    // MARK: - Fileprivate
     /// preference style
     var preferenceStyle: Style?
     
@@ -502,14 +564,24 @@ fileprivate class _NavigationBar: UINavigationBar {
     /// toFakeBar
     private let _toFakeBar = _FakeBar()
     
-    /// add fakeBar to ViewController
+    /// add fakeBar to viewController
     private func addFakeBar(fakeBar: _FakeBar, to vc: UIViewController) {
         guard let preferenceStyle = self.preferenceStyle else { return }
         
+        // set fakeBar style & frame without animation
         UIView.performWithoutAnimation {
+            // set style
             fakeBar.setStyle(vc.snb, preferenceStyle: preferenceStyle)
-            fakeBar.alpha = vc.snb.alpha ?? preferenceStyle.alpha ?? Style.alpha
+            
+            // set alpha according to alpha & backgroundAlpha
+            let alpha = vc.snb.alpha ?? preferenceStyle.alpha ?? Style.alpha
+            let backgroundAlpha = vc.snb.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+            fakeBar.alpha = alpha * backgroundAlpha
+            
+            // set frame
             fakeBar.frame = CGRect(origin: vc.view.bounds.origin, size: self._backgroundFakeBar.bounds.size)
+            
+            // add subview
             vc.view.addSubview(fakeBar)
         }
     }

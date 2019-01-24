@@ -46,7 +46,9 @@ class SettingViewController: UIViewController {
     
     // MARK: - Action
     @objc private func _onPush() {
-        self.navigationController?.pushViewController(SettingViewController(), animated: true)
+        let mineVC = MineViewController()
+        mineVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(mineVC, animated: true)
     }
 
 }
