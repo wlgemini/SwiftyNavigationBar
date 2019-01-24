@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'SwiftyNavigationBar'
-    s.version          = '1.0.2'
+    s.version          = '1.0.3'
     s.summary          = 'An easy way to customizing NavigationBar.'
     s.homepage         = 'https://github.com/wlgemini/SwiftyNavigationBar'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
