@@ -109,8 +109,8 @@ self.snb.update{ (style) in
     ```swift
     override func viewDidLoad() {
 	...
-        self.snb.backgroundAlpha = /* alpha */
-        ...
+	self.snb.backgroundAlpha = /* alpha */
+	...
     }
     ```
 
