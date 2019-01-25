@@ -108,7 +108,7 @@ self.snb.update{ (style) in
 
     ```swift
     override func viewDidLoad() {
-    	...
+	...
         self.snb.backgroundAlpha = /* alpha */
         ...
     }
@@ -155,8 +155,8 @@ let nav2 = UINavigationController(rootViewController: ViewController(), preferen
 // 第三步，配置UIViewController作用域
 override func viewDidLoad() {
 	...
-    self.snb.backgroundAlpha = /* alpha */
-    ...
+	self.snb.backgroundAlpha = /* alpha */
+	...
 }
 ```
 
