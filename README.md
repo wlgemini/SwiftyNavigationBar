@@ -108,9 +108,9 @@ self.snb.update{ (style) in
 
     ```swift
     override func viewDidLoad() {
-	...
-	self.snb.backgroundAlpha = /* alpha */
-	...
+        ...
+        self.snb.backgroundAlpha = /* alpha */
+        ...
     }
     ```
 
@@ -118,9 +118,9 @@ self.snb.update{ (style) in
 
     ```swift
     let nav = UINavigationController(rootViewController: ViewController(), preference: { (style) in
-    	// 样式配置
-    	style.backgroundEffect = /* effect */
-    	...
+        // 样式配置
+        style.backgroundEffect = /* effect */
+        ...
     })
     ```
 
@@ -144,19 +144,19 @@ SwiftyNavigationBar.Style.backgroundEffect = /* effect */
 
 // 第二步，配置UINavigationController作用域
 let nav1 = UINavigationController(rootViewController: ViewController(), preference: { (style) in
-	style.backgroundEffect = /* effect */
-	style.tintColor = /* tintColor */
+    style.backgroundEffect = /* effect */
+    style.tintColor = /* tintColor */
 })
 
 let nav2 = UINavigationController(rootViewController: ViewController(), preference: { (style) in
-	style.tintColor = /* tintColor */
+    style.tintColor = /* tintColor */
 })
 
 // 第三步，配置UIViewController作用域
 override func viewDidLoad() {
-	...
-	self.snb.backgroundAlpha = /* alpha */
-	...
+    ...
+    self.snb.backgroundAlpha = /* alpha */
+    ...
 }
 ```
 
