@@ -25,9 +25,16 @@ pod 'SwiftyNavigationBar'
 
 首先，你需要用以下`init`方法中的一个来初始化`UINavigationController`:
 
--   `init(preference: ((Style) -> Void)?)`
--   `init(rootViewController: UIViewController, preference: ((Style) -> Void)?)`
--   `init(viewControllers: [UIViewController], preference: ((Style) -> Void)?)`
+```swift
+// 1
+init(preference: ((Style) -> Void)?)
+
+// 2
+init(rootViewController: UIViewController, preference: ((Style) -> Void)?)
+
+// 3
+init(viewControllers: [UIViewController], preference: ((Style) -> Void)?)
+```
 
 ```swift
 let nav = UINavigationController(rootViewController: ViewController(), preference: nil)
@@ -41,7 +48,7 @@ let nav = UINavigationController(rootViewController: ViewController(), preferenc
 override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.snb.backgroundEffect = .color(.rd)
+    self.snb.backgroundEffect = .color(.red)
     self.snb.backgroundAlpha = 0.5
     ...
 }
@@ -148,9 +155,7 @@ let nav1 = UINavigationController(rootViewController: ViewController(), preferen
     style.tintColor = /* tintColor */
 })
 
-let nav2 = UINavigationController(rootViewController: ViewController(), preference: { (style) in
-    style.tintColor = /* tintColor */
-})
+let nav2 = UINavigationController(rootViewController: ViewController(), preference: nil)
 
 // 第三步，配置UIViewController作用域
 override func viewDidLoad() {
