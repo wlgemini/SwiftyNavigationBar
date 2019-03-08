@@ -1,1 +1,1 @@
-/Users/finup/Documents/Project/Mine/SwiftyNavigationBar/SwiftyNavigationBar_Demo/Pods/Target Support Files/SwiftyNavigationBar/SwiftyNavigationBar-umbrella.h
+../../../Target Support Files/SwiftyNavigationBar/SwiftyNavigationBar-umbrella.h
