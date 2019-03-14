@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 设置全局样式
         Style.isWhiteBarStyle = false
-        Style.shadowImageAlpha = 1
+        Style.shadowImageAlpha = 0.25
         
         // settingNav
         let settingNav = UINavigationController(rootViewController: SettingViewController(), preference: { (style) in

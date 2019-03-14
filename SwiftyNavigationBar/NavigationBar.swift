@@ -61,7 +61,7 @@ internal class NavigationBar: UINavigationBar {
         self.insertSubview(self._backgroundFakeBar, at: 0)
         
         // shadowImageView
-        self._shadowImageView.frame = CGRect(x: x, y: h, width: w, height: 0.25)
+        self._shadowImageView.frame = CGRect(x: x, y: h, width: w, height: 1.0 / UIScreen.main.scale)
         self.insertSubview(self._shadowImageView, at: 1)
     }
     
@@ -88,10 +88,10 @@ internal class NavigationBar: UINavigationBar {
         }
         
         // tintColor
-        self._tintColor = style.tintColor ?? preferenceStyle.tintColor ?? Style.tintColor
+        self._tintColor = style._tintColor ?? preferenceStyle._tintColor ?? Style.tintColor
         
         // isWhiteBarStyle
-        let isWhiteBarStyle = style.isWhiteBarStyle ?? preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
+        let isWhiteBarStyle = style._isWhiteBarStyle ?? preferenceStyle._isWhiteBarStyle ?? Style.isWhiteBarStyle
         if isWhiteBarStyle {
             self._barStyle = .black
         } else {
@@ -99,10 +99,10 @@ internal class NavigationBar: UINavigationBar {
         }
         
         // shadowImageAlpha
-        self._shadowImageView.alpha = style.shadowImageAlpha ?? preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
+        self._shadowImageView.alpha = style._shadowImageAlpha ?? preferenceStyle._shadowImageAlpha ?? Style.shadowImageAlpha
         
         // alpha
-        self._alpha = style.alpha ?? preferenceStyle.alpha ?? Style.alpha
+        self._alpha = style._alpha ?? preferenceStyle._alpha ?? Style.alpha
     }
     
     /// update to style
@@ -118,19 +118,19 @@ internal class NavigationBar: UINavigationBar {
         self._backgroundFakeBar.updateStyle(style, toStyle: toStyle, preferenceStyle: preferenceStyle)
         
         // tintColor
-        if let toTintColor = toStyle.tintColor {
-            let tintColor = style.tintColor ?? preferenceStyle.tintColor ?? Style.tintColor
+        if let toTintColor = toStyle._tintColor {
+            let tintColor = style._tintColor ?? preferenceStyle._tintColor ?? Style.tintColor
             if tintColor != toTintColor {
-                style.tintColor = toTintColor
+                style._tintColor = toTintColor
                 self._tintColor = toTintColor
             }
         }
         
         // isWhiteBarStyle
-        if let toIsWhiteBarStyle = toStyle.isWhiteBarStyle {
-            let isWhiteBarStyle = style.isWhiteBarStyle ?? preferenceStyle.isWhiteBarStyle ?? Style.isWhiteBarStyle
+        if let toIsWhiteBarStyle = toStyle._isWhiteBarStyle {
+            let isWhiteBarStyle = style._isWhiteBarStyle ?? preferenceStyle._isWhiteBarStyle ?? Style.isWhiteBarStyle
             if isWhiteBarStyle != toIsWhiteBarStyle {
-                style.isWhiteBarStyle = toIsWhiteBarStyle
+                style._isWhiteBarStyle = toIsWhiteBarStyle
                 if toIsWhiteBarStyle {
                     self._barStyle = .black
                 } else {
@@ -140,19 +140,19 @@ internal class NavigationBar: UINavigationBar {
         }
         
         // shadowImageAlpha
-        if let toShadowImageAlpha = toStyle.shadowImageAlpha {
-            let shadowImageAlpha = style.shadowImageAlpha ?? preferenceStyle.shadowImageAlpha ?? Style.shadowImageAlpha
+        if let toShadowImageAlpha = toStyle._shadowImageAlpha {
+            let shadowImageAlpha = style._shadowImageAlpha ?? preferenceStyle._shadowImageAlpha ?? Style.shadowImageAlpha
             if shadowImageAlpha != toShadowImageAlpha {
-                style.shadowImageAlpha = toShadowImageAlpha
+                style._shadowImageAlpha = toShadowImageAlpha
                 self._shadowImageView.alpha = toShadowImageAlpha
             }
         }
         
         // alpha
-        if let toAlpha = toStyle.alpha {
-            let alpha = style.alpha ?? preferenceStyle.alpha ?? Style.alpha
+        if let toAlpha = toStyle._alpha {
+            let alpha = style._alpha ?? preferenceStyle._alpha ?? Style.alpha
             if alpha != toAlpha {
-                style.alpha = toAlpha
+                style._alpha = toAlpha
                 self._alpha = toAlpha
             }
         }
@@ -177,8 +177,8 @@ internal class NavigationBar: UINavigationBar {
     /// is same style for transition
     static func isSameStyle(lhs: Style, rhs: Style, preferenceStyle: Style) -> Bool {
         // alpha
-        let alphaL = lhs.alpha ?? preferenceStyle.alpha ?? Style.alpha
-        let alphaR = rhs.alpha ?? preferenceStyle.alpha ?? Style.alpha
+        let alphaL = lhs._alpha ?? preferenceStyle._alpha ?? Style.alpha
+        let alphaR = rhs._alpha ?? preferenceStyle._alpha ?? Style.alpha
         
         // check is same Style
         if alphaL == alphaR && _FakeBar.isSameStyle(lhs: lhs, rhs: rhs, preferenceStyle: preferenceStyle) {
@@ -229,8 +229,8 @@ internal class NavigationBar: UINavigationBar {
             fakeBar.setStyle(vc.snb, preferenceStyle: preferenceStyle)
             
             // set alpha according to alpha & backgroundAlpha
-            let alpha = vc.snb.alpha ?? preferenceStyle.alpha ?? Style.alpha
-            let backgroundAlpha = vc.snb.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+            let alpha = vc.snb._alpha ?? preferenceStyle._alpha ?? Style.alpha
+            let backgroundAlpha = vc.snb._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
             fakeBar.alpha = alpha * backgroundAlpha
             
             // set frame
@@ -278,7 +278,7 @@ fileprivate class _FakeBar: UIView {
     /// set style
     func setStyle(_ style: Style, preferenceStyle: Style) {
         // backgroundEffect
-        let backgroundEffect = style.backgroundEffect ?? preferenceStyle.backgroundEffect ?? Style.backgroundEffect
+        let backgroundEffect = style._backgroundEffect ?? preferenceStyle._backgroundEffect ?? Style.backgroundEffect
         self._blurView.isHidden = true
         self._imageView.isHidden = true
         self._colorView.isHidden = true
@@ -298,16 +298,16 @@ fileprivate class _FakeBar: UIView {
         }
         
         // backgroundAlpha
-        self.alpha = style.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+        self.alpha = style._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
     }
     
     /// update to style
     func updateStyle(_ style: Style, toStyle: Style, preferenceStyle: Style) {
         // backgroundEffect
-        if let toBackgroundEffect = toStyle.backgroundEffect {
-            let backgroundEffect = style.backgroundEffect ?? preferenceStyle.backgroundEffect ?? Style.backgroundEffect
+        if let toBackgroundEffect = toStyle._backgroundEffect {
+            let backgroundEffect = style._backgroundEffect ?? preferenceStyle._backgroundEffect ?? Style.backgroundEffect
             if backgroundEffect != toBackgroundEffect {
-                style.backgroundEffect = toBackgroundEffect
+                style._backgroundEffect = toBackgroundEffect
                 self._blurView.isHidden = true
                 self._imageView.isHidden = true
                 self._colorView.isHidden = true
@@ -329,10 +329,10 @@ fileprivate class _FakeBar: UIView {
         }
         
         // backgroundAlpha
-        if let toBackgroundAlpha = toStyle.backgroundAlpha {
-            let backgroundAlpha = style.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+        if let toBackgroundAlpha = toStyle._backgroundAlpha {
+            let backgroundAlpha = style._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
             if backgroundAlpha != toBackgroundAlpha {
-                style.backgroundAlpha = toBackgroundAlpha
+                style._backgroundAlpha = toBackgroundAlpha
                 self.alpha = toBackgroundAlpha
             }
         }
@@ -341,12 +341,12 @@ fileprivate class _FakeBar: UIView {
     /// is same style for fakeBar
     static func isSameStyle(lhs: Style, rhs: Style, preferenceStyle: Style) -> Bool {
         // backgroundEffect
-        let backgroundEffectL = lhs.backgroundEffect ?? preferenceStyle.backgroundEffect ?? Style.backgroundEffect
-        let backgroundEffectR = rhs.backgroundEffect ?? preferenceStyle.backgroundEffect ?? Style.backgroundEffect
+        let backgroundEffectL = lhs._backgroundEffect ?? preferenceStyle._backgroundEffect ?? Style.backgroundEffect
+        let backgroundEffectR = rhs._backgroundEffect ?? preferenceStyle._backgroundEffect ?? Style.backgroundEffect
         
         // backgroundAlpha
-        let backgroundAlphaL = lhs.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
-        let backgroundAlphaR = rhs.backgroundAlpha ?? preferenceStyle.backgroundAlpha ?? Style.backgroundAlpha
+        let backgroundAlphaL = lhs._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
+        let backgroundAlphaR = rhs._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
         
         // check is same Style
         if backgroundEffectL == backgroundEffectR && backgroundAlphaL == backgroundAlphaR {
@@ -369,6 +369,6 @@ fileprivate class _ShadowImageView: UIImageView {
     /// init
     convenience init() {
         self.init(frame: .zero)
-        self.backgroundColor = UIColor(white: 0.5, alpha: 1)
+        self.backgroundColor = .black
     }
 }

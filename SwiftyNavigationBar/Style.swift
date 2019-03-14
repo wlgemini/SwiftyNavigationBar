@@ -44,7 +44,7 @@ public class Style {
                     self._backgroundAlpha = nv
                 }
             } else {
-                self._backgroundAlpha = newValue
+                self._backgroundAlpha = nil
             }
         }
     }
@@ -61,7 +61,7 @@ public class Style {
         set { self._isWhiteBarStyle = newValue }
     }
     
-    /// set navigationBar's shadowImageAlpha, default: 1
+    /// set navigationBar's shadowImageAlpha, default: 0.5
     public var shadowImageAlpha: CGFloat? {
         get { return self._shadowImageAlpha }
         set {
@@ -74,7 +74,7 @@ public class Style {
                     self._shadowImageAlpha = nv
                 }
             } else {
-                self._shadowImageAlpha = newValue
+                self._shadowImageAlpha = nil
             }
         }
     }
@@ -92,7 +92,7 @@ public class Style {
                     self._alpha = nv
                 }
             } else {
-                self._alpha = newValue
+                self._alpha = nil
             }
         }
     }
@@ -107,6 +107,14 @@ public class Style {
     }
     
     // MARK: - Internal
+    /// Style property's backstore
+    var _backgroundEffect: Style.Effect?
+    var _backgroundAlpha: CGFloat?
+    var _tintColor: UIColor?
+    var _isWhiteBarStyle: Bool?
+    var _shadowImageAlpha: CGFloat?
+    var _alpha: CGFloat?
+    
     /// for normal init
     internal init(viewController: UIViewController) {
         // _viewController
@@ -117,14 +125,6 @@ public class Style {
     internal init() {}
     
     // MARK: - Private
-    /// Style property's backstore
-    private var _backgroundEffect: Style.Effect?
-    private var _backgroundAlpha: CGFloat?
-    private var _tintColor: UIColor?
-    private var _isWhiteBarStyle: Bool?
-    private var _shadowImageAlpha: CGFloat?
-    private var _alpha: CGFloat?
-    
     /// _viewController
     private weak var _viewController: UIViewController?
 }
@@ -145,8 +145,8 @@ extension Style {
     /// set navigationBar's isWhiteBarStyle, default: false
     public static var isWhiteBarStyle: Bool = false
     
-    /// set navigationBar's shadowImageAlpha, default: 1
-    public static var shadowImageAlpha: CGFloat = 1
+    /// set navigationBar's shadowImageAlpha, default: 0.5
+    public static var shadowImageAlpha: CGFloat = 0.5
     
     /// set navigationBar's alpha, default: 1
     public static var alpha: CGFloat = 1

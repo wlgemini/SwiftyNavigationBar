@@ -329,6 +329,7 @@
 			baseConfigurationReference = 962F5ECC71A9BA8275162398 /* Pods-SwiftyNavigationBar_Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77W7FJ8RM6;
 				INFOPLIST_FILE = SwiftyNavigationBar_Demo/Info.plist;
@@ -339,6 +340,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wlgemini.SwiftyNavigationBar-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -349,6 +351,7 @@
 			baseConfigurationReference = 38433BE046465078445D8FA5 /* Pods-SwiftyNavigationBar_Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77W7FJ8RM6;
 				INFOPLIST_FILE = SwiftyNavigationBar_Demo/Info.plist;
@@ -359,6 +362,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wlgemini.SwiftyNavigationBar-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

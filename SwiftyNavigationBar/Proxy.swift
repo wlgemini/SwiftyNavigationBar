@@ -29,12 +29,12 @@ import UIKit
 internal class Proxy: NSObject, UINavigationControllerDelegate {
     
     /// navigationBar
-    var navigationBar: NavigationBar { return self.navigationController.navigationBar as! NavigationBar }
+    var navigationBar: NavigationBar { return self._navigationController.navigationBar as! NavigationBar }
     
     /// init
     init(_ navigationController: UINavigationController, preferenceStyle: Style) {
         // navigationController
-        self.navigationController = navigationController
+        self._navigationController = navigationController
         
         // super init
         super.init()
@@ -43,12 +43,12 @@ internal class Proxy: NSObject, UINavigationControllerDelegate {
         self.navigationBar.preferenceStyle = preferenceStyle
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
-        self.navigationController.delegate = self
+        self._navigationController.delegate = self
     }
     
     /// UINavigationControllerDelegate
     @objc func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        let transitionCoordinator = self.navigationController.transitionCoordinator
+        let transitionCoordinator = self._navigationController.transitionCoordinator
         let navBar = self.navigationBar
         guard let preferenceStyle = navBar.preferenceStyle else { return }
         
@@ -94,5 +94,5 @@ internal class Proxy: NSObject, UINavigationControllerDelegate {
     
     // MARK: - Private
     /// navigationController
-    private unowned(safe) let navigationController: UINavigationController
+    private unowned(safe) let _navigationController: UINavigationController
 }
