@@ -29,17 +29,17 @@ import UIKit
 public extension UINavigationController {
     
     /// init with preference style
-    public convenience init(preference: ((Style) -> Void)?) {
+    convenience init(preference: ((Style) -> Void)?) {
         self.init(viewControllers: [], preference: preference)
     }
     
     /// init with rootViewController and preference style
-    public convenience init(rootViewController: UIViewController, preference: ((Style) -> Void)?) {
+    convenience init(rootViewController: UIViewController, preference: ((Style) -> Void)?) {
         self.init(viewControllers: [rootViewController], preference: preference)
     }
     
     /// init with viewControllers and preference style
-    public convenience init(viewControllers: [UIViewController], preference: ((Style) -> Void)?) {
+    convenience init(viewControllers: [UIViewController], preference: ((Style) -> Void)?) {
         self.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
         self.viewControllers = viewControllers
         let preferenceStyle = Style()

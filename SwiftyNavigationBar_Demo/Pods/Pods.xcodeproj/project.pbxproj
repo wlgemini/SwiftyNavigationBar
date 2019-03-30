@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,24 +29,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		011D221CB0D0FE9784111A9B493DC25B /* libPods-SwiftyNavigationBar_Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SwiftyNavigationBar_Demo.a"; path = "libPods-SwiftyNavigationBar_Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		011D221CB0D0FE9784111A9B493DC25B /* libPods-SwiftyNavigationBar_Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftyNavigationBar_Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BAE2E538EAE52E6AB8AD360F0B78A2F /* Pods-SwiftyNavigationBar_Demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftyNavigationBar_Demo-acknowledgements.plist"; sourceTree = "<group>"; };
 		286B04779461809BB0CB586DBC433F28 /* SwiftyNavigationBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyNavigationBar-umbrella.h"; sourceTree = "<group>"; };
 		29F4F95C777B9AE6E04B23993C9572DB /* Pods-SwiftyNavigationBar_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyNavigationBar_Demo.release.xcconfig"; sourceTree = "<group>"; };
 		4BCC5ADC6A98F6A94C4B80B6580453C1 /* Pods-SwiftyNavigationBar_Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyNavigationBar_Demo.modulemap"; sourceTree = "<group>"; };
 		5F9579DE883F4F022517F725153CD62E /* Style.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Style.swift; path = SwiftyNavigationBar/Style.swift; sourceTree = "<group>"; };
 		66051EACA7497E3DDC26ED22B00CD4FB /* Pods-SwiftyNavigationBar_Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyNavigationBar_Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		70667A286FF3F2954BE0C3DEEDDAED8B /* libSwiftyNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSwiftyNavigationBar.a; path = libSwiftyNavigationBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		70667A286FF3F2954BE0C3DEEDDAED8B /* libSwiftyNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftyNavigationBar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3A90BDCD8E12CED3E5CF99618AA8DF /* Proxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Proxy.swift; path = SwiftyNavigationBar/Proxy.swift; sourceTree = "<group>"; };
 		8FB6E366AA2F8427AC34DE7493CCEAAB /* Pods-SwiftyNavigationBar_Demo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyNavigationBar_Demo-umbrella.h"; sourceTree = "<group>"; };
 		93759E6EE20E852CD300F5D399167319 /* Pods-SwiftyNavigationBar_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyNavigationBar_Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		9C3A905A886462F4EF74BA469D407115 /* SwiftyNavigationBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwiftyNavigationBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9C3A905A886462F4EF74BA469D407115 /* SwiftyNavigationBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SwiftyNavigationBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A06D4E2E0FFBAE438CA7C07C13FF679A /* SwiftyNavigationBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyNavigationBar.modulemap; sourceTree = "<group>"; };
 		A3290C8D4BCE3280D2FCD22E2893167B /* Pods-SwiftyNavigationBar_Demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyNavigationBar_Demo-dummy.m"; sourceTree = "<group>"; };
 		A679C03437B89402838DCBFA20998A5D /* SwiftyNavigationBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyNavigationBar.xcconfig; sourceTree = "<group>"; };
-		A98E26E8F038B9A2C4B43416250CBA9C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		B6B5AEACE7944365C12EBF26C7481735 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		A98E26E8F038B9A2C4B43416250CBA9C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B6B5AEACE7944365C12EBF26C7481735 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BCB131873CBCDEA5FD8E4BE029923497 /* SwiftyNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyNavigationBar-prefix.pch"; sourceTree = "<group>"; };
 		CAE78C023EF82C1585D909A3CF10C1B6 /* UINavigationController+SwiftyNavigationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+SwiftyNavigationBar.swift"; path = "SwiftyNavigationBar/UINavigationController+SwiftyNavigationBar.swift"; sourceTree = "<group>"; };
 		D4564E0930B095F4F15B4CCFA5B8F42F /* SwiftyNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyNavigationBar-dummy.m"; sourceTree = "<group>"; };
@@ -233,14 +233,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					9A506D68BA9EA5EED3850DA7C5CABB68 = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = D3232D3DD875D038497E997DE5BFF3C4 /* Products */;
@@ -318,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -367,8 +374,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -402,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -505,7 +512,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -530,7 +537,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
