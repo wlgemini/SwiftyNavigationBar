@@ -26,25 +26,25 @@ class TableViewDelegate: NSObject {
     // MARK: - Action
     
     @objc private func _onBackgroundAlpha(sender: UISlider) {
-        self.vc?.snb.update { (style) in
+        self.vc?.snb.updateStyle { (style) in
             style.backgroundAlpha = CGFloat(sender.value)
         }
     }
     
     @objc private func _onIsWhiteBarStyle(sender: UISwitch) {
-        self.vc?.snb.update { (style) in
+        self.vc?.snb.updateStyle { (style) in
             style.isWhiteBarStyle = sender.isOn
         }
     }
     
     @objc private func _onShadowImageAlpha(sender: UISlider) {
-        self.vc?.snb.update { (style) in
+        self.vc?.snb.updateStyle { (style) in
             style.shadowImageAlpha = CGFloat(sender.value)
         }
     }
     
     @objc private func _onAlpha(sender: UISlider) {
-        self.vc?.snb.update { (style) in
+        self.vc?.snb.updateStyle { (style) in
             style.alpha = CGFloat(sender.value)
         }
     }
@@ -59,12 +59,12 @@ extension TableViewDelegate: UITableViewDataSource, UITableViewDelegate {
         let threshold = tableHeaderView.bounds.size.height
         
         let alpha = scrollView.contentOffset.y/threshold
-        self.vc?.snb.update({ (style) in
+        self.vc?.snb.updateStyle { (style) in
             style.backgroundAlpha = alpha
             style.shadowImageAlpha = alpha
             style.isWhiteBarStyle = alpha > 0.5 ? false : true
             style.tintColor = alpha > 0.5 ? .black : .white
-        })
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -130,7 +130,7 @@ extension TableViewDelegate: UITableViewDataSource, UITableViewDelegate {
             
         case .backgroundAlpha:
             let sld = UISlider(frame: cell.contentView.bounds.insetBy(dx: 16, dy: 0))
-            sld.value = Float(self.vc?.snb.backgroundAlpha ?? 1)
+            sld.value = Float(self.vc?.snb.style.backgroundAlpha ?? 1)
             sld.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             sld.addTarget(self, action: #selector(_onBackgroundAlpha(sender:)), for: .valueChanged)
             cell.contentView.addSubview(sld)
@@ -149,20 +149,20 @@ extension TableViewDelegate: UITableViewDataSource, UITableViewDelegate {
         case .isWhiteBarStyle:
             cell.textLabel?.text = oneCase.rawValue
             let swt = UISwitch()
-            swt.isOn = self.vc?.snb.isWhiteBarStyle ?? false
+            swt.isOn = self.vc?.snb.style.isWhiteBarStyle ?? false
             swt.addTarget(self, action: #selector(_onIsWhiteBarStyle(sender:)), for: .valueChanged)
             cell.accessoryView = swt
             
         case .shadowImageAlpha:
             let sld = UISlider(frame: cell.contentView.bounds.insetBy(dx: 16, dy: 0))
-            sld.value = Float(self.vc?.snb.shadowImageAlpha ?? Style.shadowImageAlpha)
+            sld.value = Float(self.vc?.snb.style.shadowImageAlpha ?? Style.shadowImageAlpha)
             sld.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             sld.addTarget(self, action: #selector(_onShadowImageAlpha(sender:)), for: .valueChanged)
             cell.contentView.addSubview(sld)
             
         case .alpha:
             let sld = UISlider(frame: cell.contentView.bounds.insetBy(dx: 16, dy: 0))
-            sld.value = Float(self.vc?.snb.alpha ?? Style.alpha)
+            sld.value = Float(self.vc?.snb.style.alpha ?? Style.alpha)
             sld.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             sld.addTarget(self, action: #selector(_onAlpha(sender:)), for: .valueChanged)
             cell.contentView.addSubview(sld)
@@ -180,64 +180,64 @@ extension TableViewDelegate: UITableViewDataSource, UITableViewDelegate {
         switch oneCase {
         case .backgroundEffect:
             if row == 0 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .blur(.extraLight)
                 }
             }
             else if row == 1 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .blur(.light)
                 }
             }
             else if row == 2 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .blur(.dark)
                 }
             }
             else if row == 3 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .image(self.ts_nb, .scaleToFill)
                 }
             }
             else if row == 4 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .image(self.ts_nb, .scaleAspectFit)
                 }
             }
             else if row == 5 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .image(self.ts_nb, .scaleAspectFill)
                 }
             }
             else if row == 6 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .color(.white)
                 }
             }
             else if row == 7 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .color(.black)
                 }
             }
             else if row == 8 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.backgroundEffect = .color(.gray)
                 }
             }
             
         case .tintColor:
             if row == 0 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.tintColor = .white
                 }
             }
             else if row == 1 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.tintColor = .black
                 }
             }
             else if row == 2 {
-                self.vc?.snb.update { (style) in
+                self.vc?.snb.updateStyle { (style) in
                     style.tintColor = .gray
                 }
             }

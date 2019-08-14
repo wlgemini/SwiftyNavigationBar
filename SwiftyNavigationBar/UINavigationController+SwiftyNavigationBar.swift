@@ -30,17 +30,25 @@ public extension UINavigationController {
     
     /// init with preference style
     convenience init(preference: ((Style) -> Void)?) {
-        self.init(viewControllers: [], preference: preference)
+        self.init(viewControllers: [], toolbarClass: nil, preference: preference)
     }
     
     /// init with rootViewController and preference style
     convenience init(rootViewController: UIViewController, preference: ((Style) -> Void)?) {
-        self.init(viewControllers: [rootViewController], preference: preference)
+        self.init(viewControllers: [rootViewController], toolbarClass: nil, preference: preference)
     }
     
     /// init with viewControllers and preference style
     convenience init(viewControllers: [UIViewController], preference: ((Style) -> Void)?) {
-        self.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        self.init(viewControllers: viewControllers, toolbarClass: nil, preference: preference)
+    }
+    
+    /// init with viewControllers, toolbarClass and preference style
+    convenience init(viewControllers: [UIViewController], toolbarClass: AnyClass?, preference: ((Style) -> Void)?) {       
+        // init
+        self.init(navigationBarClass: NavigationBar.self, toolbarClass: toolbarClass)
+        
+        // config
         self.viewControllers = viewControllers
         let preferenceStyle = Style()
         preference?(preferenceStyle)
@@ -53,6 +61,7 @@ public extension UINavigationController {
         set { objc_setAssociatedObject(self, &UINavigationController._proxyKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    /// _proxyKey
+    // MARK: - Private
+    /// proxy key
     private static var _proxyKey: Void?
 }

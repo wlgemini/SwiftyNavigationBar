@@ -19,10 +19,10 @@ class MineViewController: UIViewController {
         self.title = "Mine"
         
         // snb custiom setting
-        self.snb.backgroundAlpha = 0
-        self.snb.shadowImageAlpha = 0
-        self.snb.isWhiteBarStyle = true
-        self.snb.tintColor = .white
+        self.snb.style.backgroundAlpha = 0
+        self.snb.style.shadowImageAlpha = 0
+        self.snb.style.isWhiteBarStyle = true
+        self.snb.style.tintColor = .white
         
         // rightBarButtonItem
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Push", style: .plain, target: self, action: #selector(_onPush))

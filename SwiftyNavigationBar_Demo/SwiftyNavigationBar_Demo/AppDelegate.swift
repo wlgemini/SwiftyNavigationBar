@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             style.backgroundEffect = .blur(.light)
         })
         settingNav.tabBarItem = UITabBarItem(title: "Setting", image: nil, selectedImage: nil)
+        settingNav.snb.navigationControllerDelegate = self
         
         // tabBar
         let tabBar = UITabBarController()
@@ -33,5 +34,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         return true
     }
+}
+
+extension AppDelegate: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    }
+    
+    
+    /*
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        print(#function)
+    }
+    
+    func navigationControllerPreferredInterfaceOrientationForPresentation(_ navigationController: UINavigationController) -> UIInterfaceOrientation {
+        print(#function)
+    }
+    
+    
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        print(#function)
+    }
+    
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print(#function)
+    }
+     */
 }
 

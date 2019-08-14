@@ -26,7 +26,10 @@ import UIKit
 
 
 /// Proxy
-internal class Proxy: NSObject, UINavigationControllerDelegate {
+internal class Proxy: NSObject {
+    
+    /// navigationController delegate
+    weak var navigationControllerDelegate: UINavigationControllerDelegate?
     
     /// navigationBar
     var navigationBar: NavigationBar { return self._navigationController.navigationBar as! NavigationBar }
@@ -46,53 +49,75 @@ internal class Proxy: NSObject, UINavigationControllerDelegate {
         self._navigationController.delegate = self
     }
     
-    /// UINavigationControllerDelegate
-    @objc func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        let transitionCoordinator = self._navigationController.transitionCoordinator
-        let navBar = self.navigationBar
-        guard let preferenceStyle = navBar.preferenceStyle else { return }
-        
-        if let coordinator = transitionCoordinator { // transition with animation
-            coordinator.animate(alongsideTransition: { (ctx) in
-                guard let fromVC = ctx.viewController(forKey: .from), let toVC = ctx.viewController(forKey: .to) else { return }
-                
-                // set fake bar style without animation, if there are not same style for transition.
-                if NavigationBar.isSameStyle(lhs: fromVC.snb, rhs: toVC.snb, preferenceStyle: preferenceStyle) == false {
-                    // add fromFakeBar to fromVC
-                    navBar.addFromFakeBar(to: fromVC)
-                    
-                    // add toFakeBar to toVC
-                    navBar.addToFakeBar(to: toVC)
-                    
-                    // hidden backgroundFakeBar
-                    navBar.isBackgroundFakeBarHidden = true
-                }
-                
-                // set navigationBar style with animation
-                navBar.setStyle(toVC.snb)
-                
-            }) { (ctx) in
-                guard let fromVC = ctx.viewController(forKey: .from) else { return }
-                
-                // remove fromFakeBar and toFakeBar from superview
-                navBar.removeToAndFromFakeBar()
-                
-                // rollback navigationBar and backgroundFakeBar style if transition is cancelled
-                if ctx.isCancelled {
-                    navBar.setStyle(fromVC.snb)
-                }
-                
-                // show backgroundFakeBar
-                navBar.isBackgroundFakeBarHidden = false
-            }
-        } else { // transition without animation
-            // set navigationBar and backgroundFakeBar style
-            let toVC = viewController
-            navBar.setStyle(toVC.snb)
-        }
-    }
-    
     // MARK: - Private
     /// navigationController
     private unowned(safe) let _navigationController: UINavigationController
+}
+
+
+/// Proxy (UINavigationControllerDelegate)
+extension Proxy: UINavigationControllerDelegate {
+    
+    // MARK: - Forwarding message call to UINavigationController.delegate if self (Proxy) don't respond
+    override func responds(to aSelector: Selector!) -> Bool {
+        if #selector(Proxy.navigationController(_:willShow:animated:)) == aSelector {
+            return true
+        } else {
+            return self.navigationControllerDelegate?.responds(to: aSelector) ?? false
+        }
+    }
+    
+    override func forwardingTarget(for aSelector: Selector!) -> Any? {
+        return self.navigationControllerDelegate
+    }
+    
+    // MARK: - UINavigationControllerDelegate
+    @objc func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if let preferenceStyle = self.navigationBar.preferenceStyle {
+            let navBar = self.navigationBar
+            let transitionCoordinator = self._navigationController.transitionCoordinator
+            
+            if let coordinator = transitionCoordinator { // transition with animation
+                coordinator.animate(alongsideTransition: { (ctx) in
+                    guard let fromVC = ctx.viewController(forKey: .from), let toVC = ctx.viewController(forKey: .to) else { return }
+                    
+                    // set fake bar style without animation, if there are not same style for transition.
+                    if NavigationBar.isSameStyle(lhs: fromVC.snb.style, rhs: toVC.snb.style, preferenceStyle: preferenceStyle) == false {
+                        // add fromFakeBar to fromVC
+                        navBar.addFromFakeBar(to: fromVC)
+                        
+                        // add toFakeBar to toVC
+                        navBar.addToFakeBar(to: toVC)
+                        
+                        // hidden backgroundFakeBar
+                        navBar.isBackgroundFakeBarHidden = true
+                    }
+                    
+                    // set navigationBar style with animation
+                    navBar.setStyle(toVC.snb.style)
+                    
+                }) { (ctx) in
+                    guard let fromVC = ctx.viewController(forKey: .from) else { return }
+                    
+                    // remove fromFakeBar and toFakeBar from superview
+                    navBar.removeToAndFromFakeBar()
+                    
+                    // rollback navigationBar and backgroundFakeBar style if transition is cancelled
+                    if ctx.isCancelled {
+                        navBar.setStyle(fromVC.snb.style)
+                    }
+                    
+                    // show backgroundFakeBar
+                    navBar.isBackgroundFakeBarHidden = false
+                }
+            } else { // transition without animation
+                // set navigationBar and backgroundFakeBar style
+                let toVC = viewController
+                navBar.setStyle(toVC.snb.style)
+            }
+        }
+        
+        /// call navigationController delegate
+        self.navigationControllerDelegate?.navigationController?(navigationController, willShow: viewController, animated: animated)
+    }
 }

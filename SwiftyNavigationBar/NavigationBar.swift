@@ -226,11 +226,11 @@ internal class NavigationBar: UINavigationBar {
         // set fakeBar style & frame without animation
         UIView.performWithoutAnimation {
             // set style
-            fakeBar.setStyle(vc.snb, preferenceStyle: preferenceStyle)
+            fakeBar.setStyle(vc.snb.style, preferenceStyle: preferenceStyle)
             
             // set alpha according to alpha & backgroundAlpha
-            let alpha = vc.snb._alpha ?? preferenceStyle._alpha ?? Style.alpha
-            let backgroundAlpha = vc.snb._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
+            let alpha = vc.snb.style._alpha ?? preferenceStyle._alpha ?? Style.alpha
+            let backgroundAlpha = vc.snb.style._backgroundAlpha ?? preferenceStyle._backgroundAlpha ?? Style.backgroundAlpha
             fakeBar.alpha = alpha * backgroundAlpha
             
             // set frame

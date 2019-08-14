@@ -97,15 +97,6 @@ public class Style {
         }
     }
     
-    /// update style instantly
-    public func update(_ setting: (Style) -> Void) {
-        guard let navBar = self._viewController?.navigationController?.proxy?.navigationBar else { return }
-        
-        let toStyle = Style()
-        setting(toStyle)
-        navBar.update(fromStyle: self, toStyle: toStyle)
-    }
-    
     // MARK: - Internal
     /// Style property's backstore
     var _backgroundEffect: Style.Effect?
@@ -115,18 +106,8 @@ public class Style {
     var _shadowImageAlpha: CGFloat?
     var _alpha: CGFloat?
     
-    /// for normal init
-    internal init(viewController: UIViewController) {
-        // _viewController
-        self._viewController = viewController
-    }
-    
-    /// for config style init
+    /// init
     internal init() {}
-    
-    // MARK: - Private
-    /// _viewController
-    private weak var _viewController: UIViewController?
 }
 
 
@@ -153,6 +134,7 @@ extension Style {
 }
 
 
+/// Style (Effect)
 extension Style {
     
     /// Effect

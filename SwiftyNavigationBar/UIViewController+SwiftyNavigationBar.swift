@@ -29,13 +29,13 @@ import UIKit
 extension UIViewController {
     
     /// snb
-    public var snb: Style {
-        if let style = objc_getAssociatedObject(self, &UIViewController._snbKey) as? Style {
-            return style
+    public var snb: SwiftyNavigationBar {
+        if let snb = objc_getAssociatedObject(self, &UIViewController._snbKey) as? SwiftyNavigationBar {
+            return snb
         } else {
-            let style = Style(viewController: self)
-            objc_setAssociatedObject(self, &UIViewController._snbKey, style, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            return style
+            let snb = SwiftyNavigationBar(viewController: self)
+            objc_setAssociatedObject(self, &UIViewController._snbKey, snb, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            return snb
         }
     }
     

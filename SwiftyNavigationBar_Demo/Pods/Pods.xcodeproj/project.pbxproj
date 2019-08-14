@@ -14,6 +14,7 @@
 		743EE3D734DA562384392163B838B878 /* SwiftyNavigationBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4564E0930B095F4F15B4CCFA5B8F42F /* SwiftyNavigationBar-dummy.m */; };
 		747902F1C6F64D20C3AB6837F0CF03FC /* Pods-SwiftyNavigationBar_Demo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB6E366AA2F8427AC34DE7493CCEAAB /* Pods-SwiftyNavigationBar_Demo-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		90B94E4033CD0FA7E9F8DA74E9FC4771 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9579DE883F4F022517F725153CD62E /* Style.swift */; };
+		CAA4135F2303B8BB00112F60 /* SwiftyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4135E2303B8BB00112F60 /* SwiftyNavigationBar.swift */; };
 		CB282D30D13F012A60C49DABDAA669AC /* Pods-SwiftyNavigationBar_Demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3290C8D4BCE3280D2FCD22E2893167B /* Pods-SwiftyNavigationBar_Demo-dummy.m */; };
 		D4AD78A0C495A460281B40EB288DEFC2 /* SwiftyNavigationBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 286B04779461809BB0CB586DBC433F28 /* SwiftyNavigationBar-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		A98E26E8F038B9A2C4B43416250CBA9C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6B5AEACE7944365C12EBF26C7481735 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BCB131873CBCDEA5FD8E4BE029923497 /* SwiftyNavigationBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyNavigationBar-prefix.pch"; sourceTree = "<group>"; };
+		CAA4135E2303B8BB00112F60 /* SwiftyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyNavigationBar.swift; path = SwiftyNavigationBar/SwiftyNavigationBar.swift; sourceTree = "<group>"; };
 		CAE78C023EF82C1585D909A3CF10C1B6 /* UINavigationController+SwiftyNavigationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationController+SwiftyNavigationBar.swift"; path = "SwiftyNavigationBar/UINavigationController+SwiftyNavigationBar.swift"; sourceTree = "<group>"; };
 		D4564E0930B095F4F15B4CCFA5B8F42F /* SwiftyNavigationBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyNavigationBar-dummy.m"; sourceTree = "<group>"; };
 		F1C431387E621962097F168137D38AB8 /* NavigationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = SwiftyNavigationBar/NavigationBar.swift; sourceTree = "<group>"; };
@@ -98,11 +100,12 @@
 		5FF60A9B4DA7CAA7A3A078ED596963CC /* SwiftyNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				F1C431387E621962097F168137D38AB8 /* NavigationBar.swift */,
-				8E3A90BDCD8E12CED3E5CF99618AA8DF /* Proxy.swift */,
-				5F9579DE883F4F022517F725153CD62E /* Style.swift */,
 				CAE78C023EF82C1585D909A3CF10C1B6 /* UINavigationController+SwiftyNavigationBar.swift */,
 				F6369C0C4E025039B43E9691903C65D6 /* UIViewController+SwiftyNavigationBar.swift */,
+				CAA4135E2303B8BB00112F60 /* SwiftyNavigationBar.swift */,
+				8E3A90BDCD8E12CED3E5CF99618AA8DF /* Proxy.swift */,
+				5F9579DE883F4F022517F725153CD62E /* Style.swift */,
+				F1C431387E621962097F168137D38AB8 /* NavigationBar.swift */,
 				D2009B4374A84AD83BE4648B611C56D5 /* Pod */,
 				6F33A8ECD77A6ADE6DCA69D130F8C701 /* Support Files */,
 			);
@@ -303,6 +306,7 @@
 				3A3FDCB86BB8D0A5355A685326F037BC /* Proxy.swift in Sources */,
 				90B94E4033CD0FA7E9F8DA74E9FC4771 /* Style.swift in Sources */,
 				743EE3D734DA562384392163B838B878 /* SwiftyNavigationBar-dummy.m in Sources */,
+				CAA4135F2303B8BB00112F60 /* SwiftyNavigationBar.swift in Sources */,
 				4C137AEAA324B9D3C312F199F088D5DC /* UINavigationController+SwiftyNavigationBar.swift in Sources */,
 				1CBF7B1C9B59FA67B76EB075B8A05E38 /* UIViewController+SwiftyNavigationBar.swift in Sources */,
 			);
