@@ -52,7 +52,11 @@ public extension UINavigationController {
         self.viewControllers = viewControllers
         let preferenceStyle = Style()
         preference?(preferenceStyle)
-        self.proxy = Proxy(self, preferenceStyle: preferenceStyle)
+        let proxy = Proxy(self, preferenceStyle: preferenceStyle)
+        self.proxy = proxy
+
+        // set delegate
+        self.delegate = proxy
     }
     
     /// proxy

@@ -1,5 +1,6 @@
 # SwiftyNavigationBar
 
+[![SwiftyNavigationBar CI](https://github.com/wlgemini/SwiftyNavigationBar/workflows/SwiftyNavigationBar%20CI/badge.svg)](https://github.com/wlgemini/SwiftyNavigationBar/actions)
 [![Version](https://img.shields.io/cocoapods/v/SwiftyNavigationBar.svg?style=flat)](https://cocoapods.org/pods/SwiftyNavigationBar)
 [![License](https://img.shields.io/cocoapods/l/SwiftyNavigationBar.svg?style=flat)](https://cocoapods.org/pods/SwiftyNavigationBar)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyNavigationBar.svg?style=flat)](https://cocoapods.org/pods/SwiftyNavigationBar)

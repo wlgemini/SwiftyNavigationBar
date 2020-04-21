@@ -37,6 +37,8 @@ public class SwiftyNavigationBar {
         }
         set {
             if let proxy = self._navigationController?.proxy {
+                // bugfix: reset navigationController.delegate
+                self._navigationController?.delegate = nil
                 proxy.navigationControllerDelegate = newValue
                 self._navigationController?.delegate = proxy
             } else {
