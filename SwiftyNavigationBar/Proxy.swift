@@ -42,11 +42,10 @@ internal class Proxy: NSObject {
         // super init
         super.init()
         
-        // config
+        // config navigationBar
         self.navigationBar.preferenceStyle = preferenceStyle
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
-        self._navigationController.delegate = self
     }
     
     // MARK: - Private
