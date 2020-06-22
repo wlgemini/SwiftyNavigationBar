@@ -1,5 +1,5 @@
 PODS:
-  - SwiftyNavigationBar (5.1.1)
+  - SwiftyNavigationBar (5.1.2)
 
 DEPENDENCIES:
   - SwiftyNavigationBar (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftyNavigationBar: 427867457243363c6c049559f7b69cca3b42c8e8
+  SwiftyNavigationBar: 121441eaa5bd4ce8378dca3401f89b2af850d191
 
 PODFILE CHECKSUM: 484669623df81a9559e2aef142f1e16eac77e2fa
 
