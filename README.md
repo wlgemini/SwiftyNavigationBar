@@ -75,37 +75,37 @@ self.snb.updateStyle { (style) in
 
 -   `backgroundEffect`：改变背景样式，有`Blur`/`Image`/`Color`三类样式可选
 
-    ![backgroundEffect](src/backgroundEffect.gif)
+    ![backgroundEffect](images/backgroundEffect.gif)
 
 -   `backgroundAlpha`：改变背景透明度(并不是改变`NavigationBar`的透明度)
 
-    ![backgroundAlpha](src/backgroundAlpha.gif)
+    ![backgroundAlpha](images/backgroundAlpha.gif)
 
 -   `tintColor`：改变`NavigationBar`的`tintColor`，主要影响左右两边`BarButtonItem`的颜色
 
-    ![tintColor](src/tintColor.gif)
+    ![tintColor](images/tintColor.gif)
 
 -   `isWhiteBarStyle`：改变`NavigationBar`的`barStyle`，主要影响`StatusBar`和`title`
 
-    ![isWhiteBarStyle](src/isWhiteBarStyle.gif)
+    ![isWhiteBarStyle](images/isWhiteBarStyle.gif)
 
 -   `shadowImageAlpha`：改变`shadowImage`的透明度
 
-    ![shadowImageAlpha](src/shadowImageAlpha.gif)
+    ![shadowImageAlpha](images/shadowImageAlpha.gif)
 
 -   `alpha`：改变`NavigationBar`的透明度(这会使得整个`NavigationBar`被隐藏掉)
 
-    ![alpha](src/alpha.gif)
+    ![alpha](images/alpha.gif)
 
 ### 样式的综合使用
 
 -   🌰#1
 
-    ![use1](src/use1.gif)
+    ![use1](images/use1.gif)
 
 -   🌰#2
 
-    ![use2](src/use2.gif)
+    ![use2](images/use2.gif)
 
 
 

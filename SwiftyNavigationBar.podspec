@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
     s.author           = { 'wlgemini' => 'wangluguang@live.com' }
     s.source           = { :git => 'https://github.com/wlgemini/SwiftyNavigationBar.git', :tag => s.version.to_s }
     s.ios.deployment_target = '8.0'
-    s.source_files     = 'SwiftyNavigationBar/*.swift'
+    s.source_files     = 'Sources/*.swift'
     s.swift_version    = '5.0'
     s.frameworks       = 'UIKit'
 end
