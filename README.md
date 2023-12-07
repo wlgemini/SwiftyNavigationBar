@@ -7,31 +7,6 @@
 
 An easy way to customizing NavigationBar.
 
-## Requirements
-
--   iOS 8.0+
--   Swift 5.0
-
-## Installation
-
-### CocoaPods
-
-SwiftyNavigationBar is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
-
-```ruby
-pod 'SwiftyNavigationBar'
-```
-
-### Swift Package Manager
-
-From Xcode 11, you can use [Swift Package Manager](https://swift.org/package-manager/) to add SwiftyNavigationBar to your project.
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/wlgemini/SwiftyNavigationBar.git", .upToNextMajor(from: "5.1.0"))
-]
-```
-
 ## Quick Start
 
 首先，你需要用以下`extension`中的一个`init`来初始化`UINavigationController`:
@@ -180,9 +155,30 @@ override func viewDidLoad() {
 }
 ```
 
-## Author
+## Requirements
 
-wlgemini, wangluguang@live.com
+-   iOS 8.0+
+-   Swift 5.0
+
+## Installation
+
+### CocoaPods
+
+SwiftyNavigationBar is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
+
+```ruby
+pod 'SwiftyNavigationBar'
+```
+
+### Swift Package Manager
+
+From Xcode 11, you can use [Swift Package Manager](https://swift.org/package-manager/) to add SwiftyNavigationBar to your project.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/wlgemini/SwiftyNavigationBar.git", .upToNextMajor(from: "5.1.0"))
+]
+```
 
 ## License
 
